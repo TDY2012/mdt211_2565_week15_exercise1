@@ -55,11 +55,15 @@ class BinaryTree<T> where T : struct
             if(previousPtr.Left() != null)
             {
                 Node<T> ptr = previousPtr.Left();
-                previousPtr.SetLeft(ptr.Left());
 
                 if(ptr.Right() != null)
                 {
+                    previousPtr.SetLeft(ptr.Left());
                     ptr.Right().SetRight(ptr.Right());
+                }
+                else
+                {
+                    previousPtr.SetLeft(ptr.Right());
                 }
             }
             else
